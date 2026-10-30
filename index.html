@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07050d" />
+    <title>Paradoxe — Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell theme-classic" id="appShell">
+      <div class="ambient ambient-left"></div><div class="ambient ambient-right"></div>
+      <header class="topbar">
+        <button class="icon-button" id="menuButton" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10" /></svg></button>
+        <button class="brand-lockup" data-screen="home" aria-label="Retour à l'accueil"><span class="brand-mark">✦</span><span class="brand-name">PARADOXE</span></button>
+        <button class="token-pill" id="tokenButton" aria-label="Voir les jetons"><span class="token-icon">✧</span><span id="tokenCount">5</span></button>
+      </header>
+
+      <main>
+        <section class="screen active" id="screen-home" data-screen-view="home">
+          <div class="home-hero"><div class="hero-sigil">✦</div><p class="eyebrow">L’APPLICATION DE SOIRÉE</p><h1>Les règles<br /><span>qui font<br />la différence.</span></h1><p class="hero-copy">Un jeu à boire, de vérités et de défis pour rapprocher les joueurs — ou semer le chaos.</p><div class="hero-actions"><button class="primary-button" data-screen="setup">Créer une partie <span>→</span></button><button class="ghost-button" data-screen="auth">Se connecter</button></div><button class="text-button discover-link" data-screen="presentation">Découvrir l’univers <span>↗</span></button></div>
+          <div class="home-proof"><span>✧</span> 3 univers · des centaines de cartes · zéro partie identique</div>
+        </section>
+
+        <section class="screen" id="screen-presentation" data-screen-view="presentation">
+          <div class="screen-heading"><button class="back-button" data-screen="home">←</button><div><p class="section-kicker">BIENVENUE DANS LE PARADOXE</p><h2>Choisis ton univers</h2></div></div><p class="screen-intro">Chaque mode a son ambiance, ses règles et sa façon de faire monter la tension.</p>
+          <div class="mode-spotlight mode-classic"><div class="mode-icon">✧</div><div><p class="mode-overline">LE CŒUR DU JEU</p><h3>Classique</h3><p>Actions, vérités et cartes surprises pour tout le monde.</p></div><span class="mode-arrow">→</span></div>
+          <div class="mode-spotlight mode-alcohol"><div class="mode-icon">♧</div><div><p class="mode-overline">À SERVIR FRAIS</p><h3>Alcool</h3><p>Des niveaux de gorgées dosés, jamais imposés.</p></div><span class="mode-arrow">→</span></div>
+          <div class="mode-spotlight mode-jdr"><div class="mode-icon">♛</div><div><p class="mode-overline">INCARNE. BLUFFE. DÉCIDE.</p><h3>Jeu de rôle</h3><p>Personnages secrets, missions et retournements.</p></div><span class="mode-arrow">→</span></div>
+          <button class="primary-button" data-screen="setup">Commencer <span>→</span></button>
+        </section>
+
+        <section class="screen" id="screen-auth" data-screen-view="auth">
+          <div class="screen-heading"><button class="back-button" data-screen="home">←</button><div><p class="section-kicker">TON COMPTE PARADOXE</p><h2>Ravi de te revoir</h2></div></div>
+          <div class="auth-tabs"><button class="auth-tab is-active" data-auth-mode="login">Connexion</button><button class="auth-tab" data-auth-mode="signup">Inscription</button></div>
+          <form class="auth-form" id="authForm"><label>Adresse e-mail<input type="email" placeholder="toi@exemple.com" required /></label><label>Mot de passe<input type="password" placeholder="••••••••" required /></label><button class="primary-button" type="submit"><span id="authCta">Me connecter</span> <span>→</span></button></form>
+          <button class="forgot-link">Mot de passe oublié ?</button><div class="divider"><span>ou</span></div><button class="social-button" id="guestButton">Continuer en invité <span>↗</span></button><p class="legal-copy">En continuant, tu acceptes de jouer avec bienveillance et de respecter les limites de chacun.</p>
+        </section>
+
+        <section class="screen" id="screen-subscribe" data-screen-view="subscribe">
+          <div class="screen-heading"><button class="back-button" data-screen="home">←</button><div><p class="section-kicker">PARADOXE PREMIUM</p><h2>Va plus loin</h2></div></div><p class="screen-intro">Débloque les modes spéciaux, les cartes exclusives et tes statistiques de partie.</p>
+          <div class="premium-card is-featured"><div class="crown">♛</div><div><p class="mode-overline">PACK PREMIUM</p><h3>Le chaos sans limite</h3><p>Accès à tous les univers et aux cartes premium.</p></div><strong>4,99 €<small>/mois</small></strong></div>
+          <ul class="benefit-list"><li><span>✦</span> 150 cartes exclusives</li><li><span>✦</span> Mode JDR complet + missions secrètes</li><li><span>✦</span> Progression, titres et badges</li></ul><button class="primary-button" id="subscribeButton">Découvrir Premium <span>→</span></button><button class="text-button skip-subscribe" data-screen="setup">Continuer avec la version gratuite</button>
+        </section>
+
+        <section class="screen" id="screen-setup" data-screen-view="setup">
+          <div class="screen-heading"><button class="back-button" data-screen="home">←</button><div><p class="section-kicker">NOUVELLE PARTIE</p><h2>Quel sera le mood ?</h2></div></div><div class="setup-meta"><span>4 joueurs</span><span>Code privé · prêt</span></div>
+          <div class="setup-mode-grid"><button class="setup-mode mode-classic is-selected" data-theme="classic" data-game="Classique"><span class="mode-icon">✧</span><strong>Classique</strong><small>Action · vérité</small></button><button class="setup-mode mode-alcohol" data-theme="alcohol" data-game="Alcool"><span class="mode-icon">♧</span><strong>Alcool</strong><small>Gorgées dosées</small></button><button class="setup-mode mode-jdr" data-theme="jdr" data-game="Jeu de rôle"><span class="mode-icon">♛</span><strong>JDR</strong><small>Bluff · missions</small></button></div>
+          <div class="settings-card"><div><span>Niveau de piquant</span><strong id="heatValue">Normal</strong></div><input type="range" min="1" max="3" value="2" id="heatRange" /></div><button class="primary-button" data-screen="game">Lancer la partie <span>→</span></button><button class="text-button" data-screen="subscribe">Voir les options Premium <span>↗</span></button>
+        </section>
+
+        <section class="screen" id="screen-game" data-screen-view="game">
+          <div class="game-header"><button class="back-button" data-screen="setup">←</button><div><p class="section-kicker">PARTIE EN COURS · 4 JOUEURS</p><h2 id="gameModeLabel">MODE CLASSIQUE</h2></div><span class="round-label" id="roundLabel">ROUND 01</span></div>
+          <div class="player-strip"><div class="game-player is-current"><span class="player-avatar avatar-sarah">S</span><span>Sarah</span><small>à toi</small></div><div class="game-player"><span class="player-avatar avatar-leo">L</span><span>Léo</span><small>12 pts</small></div><div class="game-player"><span class="player-avatar avatar-nico">N</span><span>Nico</span><small>9 pts</small></div><div class="game-player"><span class="player-avatar avatar-emma">E</span><span>Emma</span><small>8 pts</small></div></div>
+          <div class="game-card panel-glow"><div class="turn-card-header"><div><p class="section-kicker">ÉTAPE 01 / 02</p><h2>Lance le dé</h2></div><span class="mini-label" id="turnHint">LE HASARD DÉCIDE</span></div><div class="dice-stage" id="diceStage" aria-live="polite"><div class="dice-shadow"></div><div class="dice-cube" id="diceCube" aria-label="Dé à six faces"><div class="die-face face-front"><span class="pip p5"></span></div><div class="die-face face-back"><span class="pip p6a"></span><span class="pip p6b"></span></div><div class="die-face face-right"><span class="pip p3"></span></div><div class="die-face face-left"><span class="pip p4"></span></div><div class="die-face face-top"><span class="pip p2"></span></div><div class="die-face face-bottom"><span class="pip p1"></span></div></div></div><p class="dice-copy" id="diceCopy">Lance le dé pour découvrir la catégorie de ta carte.</p><button class="primary-button" id="rollButton"><span>✦</span> Lancer le dé <span>→</span></button></div>
+          <div class="card-panel panel-glow" id="cardPanel"><div class="card-topline"><div class="card-kind"><span class="kind-dot"></span><span id="cardKind">ACTION</span></div><span class="card-count">Carte <b id="cardNumber">01</b>/24</span></div><div class="prompt-wrap"><div class="prompt-symbol" id="promptSymbol">✧</div><p class="prompt-title" id="promptTitle">Fais un défi</p><p class="prompt-text" id="promptText">En 30 secondes, convaincs tout le monde que tu es la personne la plus mystérieuse de la pièce.</p></div><div class="reward-row"><span>Récompense</span><strong>+ 1 jeton</strong><span class="spark">✦</span></div><button class="secondary-button" id="drawButton">Tirer une autre carte <span>↗</span></button></div><button class="text-button change-mode" data-screen="setup">Changer de mode <span>↗</span></button>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Navigation principale"><button class="nav-item is-selected" data-screen="home"><span>✦</span><small>Accueil</small></button><button class="nav-item" data-screen="game"><span>♧</span><small>Jouer</small></button><button class="nav-item" data-screen="auth"><span>♛</span><small>Profil</small></button></nav><div class="toast" id="toast" role="status"></div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
